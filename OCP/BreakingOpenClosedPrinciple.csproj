@@ -45,9 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeaturedProduct.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductConsole.cs" />
     <Compile Include="ProductType.cs" />
+    <Compile Include="StandardProduct.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

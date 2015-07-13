@@ -1,37 +1,39 @@
-﻿namespace BreakingLiskovSubtitutionPrinciple
+﻿using System.Collections.Generic;
+
+namespace BreakingLiskovSubtitutionPrinciple
 {
     public class Rectangle
     {
-        public virtual double Width { get; set; }
-        public virtual double Height { get; set; }
+        private readonly List<ShapeLength> shapeLengths;
+
+        public Rectangle(List<ShapeLength> shapeLengths )
+        {
+            this.shapeLengths = shapeLengths;
+        }
+
 
         public double Area()
         {
-            return Height*Width;
+            if (shapeLengths.Count == 1)
+            {
+                return shapeLengths[0].Length*shapeLengths[0].Length;
+            }
+           
+                return shapeLengths[0].Length*shapeLengths[1].Length;
+            
         }
     }
 
     public class Square : Rectangle
     {
-        public override double Height 
+        private List<ShapeLength> ShapeLengths { get; set; }
+
+        public Square(List<ShapeLength> shapeLengths) : base(shapeLengths)
         {
-            get { return base.Height; }
-            set
-            {
-                base.Height = value;
-                base.Width = value;
-            }
+            ShapeLengths = shapeLengths;
         }
-        
-        public override double Width 
-        {
-            get { return base.Width; }
-            set
-            {
-                base.Height = value;
-                base.Width = value;
-            }
-        }
+
+       
     }
 
 #region What's wrong with the above?

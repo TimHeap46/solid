@@ -1,4 +1,5 @@
-﻿using BreakingLiskovSubtitutionPrinciple;
+﻿using System.Collections.Generic;
+using BreakingLiskovSubtitutionPrinciple;
 using NUnit.Framework;
 
 namespace TestBreakingLSP
@@ -9,7 +10,8 @@ namespace TestBreakingLSP
         [Test]
         public void ShouldCalculateAreaOfRectangle()
         {
-            var rectangle = new Rectangle {Height = 5, Width = 4};
+            var shapeLengths = new List<ShapeLength> {new ShapeLength() {Length = 4}, new ShapeLength() {Length = 5}};
+            var rectangle = new Rectangle(shapeLengths);
 
             Assert.That(rectangle.Area(), Is.EqualTo(20));
         }
@@ -17,9 +19,13 @@ namespace TestBreakingLSP
         [Test]
         public void ShouldCalculateAreaOfSquare()
         {
-            Rectangle rectangle = new Square {Height = 5, Width = 4};
+            var shapeLength = new ShapeLength {Length = 4};
+            var ShapeLengths = new List<ShapeLength> {shapeLength};
+            Rectangle rectangle = new Square(ShapeLengths);
 
-            Assert.That(rectangle.Area(), Is.EqualTo(20));
+            Assert.That(rectangle.Area(), Is.EqualTo(16));
         }
     }
+
+   
 }

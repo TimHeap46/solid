@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Remoting;
 
 namespace BreakingSingleResponsibility
 {
@@ -12,7 +14,8 @@ namespace BreakingSingleResponsibility
             }
             catch (Exception ex)
             {
-                System.IO.File.WriteAllText(@"C:\Error.txt", ex.ToString());
+                GlobalErrorHandler.HandleError(ex);
+                
             }
         }
     }

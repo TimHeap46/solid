@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ShapeLength.cs" />
     <Compile Include="Shapes.cs" />
     <Compile Include="TestShapes.cs" />
   </ItemGroup>
